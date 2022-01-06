@@ -11,7 +11,7 @@
                     <div class="header-text">
                         Полусухая или механизированная стяжка пола – это процесс выравнивания поверхности с использованием специальной техники и смеси из небольшого количества воды. Это позволяет производить масштабные работы за короткий период времени и с небольшими трудозатратами рабочих.
                     </div>
-                    <div class="call-button">Заказать звонок</div>
+                    <div @click="$emit('call', -300, -3)" class="call-button">Заказать звонок</div>
                 </div>
                 <div class="main-photo">
                     <img src="../assets/5200-VBS_1000x560_blue-800x448.png" alt="">
@@ -37,8 +37,7 @@ export default {
 .header-title{
 }
 .top-content{
-    background: url(../assets/beton_potertosti_tekstura_146032_1920x1080.jpg);
-    height: 100%
+    height: 100%;
 }
 .top-content-wrapper {
     background: #020202c2;
@@ -47,8 +46,8 @@ export default {
 .logo-company {
     display: flex;
     justify-content: center;
-    color: white;
-    padding-top: 90px;
+    color: #ffc107;
+    padding-top: 15%;
     padding-bottom: 50px;
 }
 .top-content-center {
@@ -69,12 +68,12 @@ export default {
     font-size: 24px;
 }
 .header-title {
-    color: white;
+    color: #ffc107;
     text-transform: uppercase;
     width: 530px;
 }
 .header-text {
-    width: 530px;
+    max-width: 530px;
     font-size: 24px;
     text-transform: none;
 }
@@ -91,7 +90,7 @@ export default {
 }
 .title-bottom {
     font-size: 24px;
-    color: #c1c1c1;
+    color: #ffc107;
 }
 
 .call-button {
@@ -122,6 +121,40 @@ export default {
         width: 200px;
         right: 0px;
         top: 80px;
+    }
+}
+@media (max-width: 1190px){
+    .top-content-center{
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 15px;
+    }
+    .logo-company{
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 580px) {
+    .top-content-center{
+    }
+    .main-photo{
+        display: none;
+    }
+    .title-main{
+        font-size: 36;
+    }
+    .logo-text{
+    }
+    .header-title{
+        width: 99%;
+        padding: 0 20px;
+    }
+    .header-text{
+        font-size: 20px;
+    }
+    .call-button{
+        margin: 0 auto;
+        margin-top: 3em;
     }
 }
 </style>

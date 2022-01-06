@@ -29,9 +29,9 @@
                     </div>
                 </div>
                 <div class="cal">
-                    <div class="cal-input"><input id="cal-input" type="text"/><div class="cal-input-placeholder">квадратный метр</div></div>
+                    <div class="cal-input"><input id="cal-input" v-model="inputNum" type="number"/><div class="cal-input-placeholder">квадратный метр</div></div>
                     <div class="cal-fix-price">x<span class="cal-var cal-number">800₽</span>=</div>
-                    <div class="cal-sum cal-number" id="cal-sum"> 40000₽</div>
+                    <div class="cal-sum cal-number" id="cal-sum"> {{resultSum}}₽</div>
                 </div>
             </div>
         </div>
@@ -51,12 +51,21 @@ export default {
     karandashlinerIcon,
     rubleIcon
   },
-  setup(){
-
+  data(){
       return {
+          inputNum: '',
+          resultSum: '40000',
+      }
+  },
+  methods: {
+  },
+  watch: {
+      inputNum() {
+          this.resultSum = this.inputNum * 800;
       }
   }
 }
+
 </script>
 
 <style>

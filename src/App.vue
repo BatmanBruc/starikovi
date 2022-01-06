@@ -1,8 +1,15 @@
 <template>
     <div class="nav-top">
         <div class="nav">
-            <div class="nav-item">Главная</div>
-            <div class="nav-item">Условия</div>
+            <div class="nav-item"
+            @click="calcTop = 0, currentPos = 0">Главная</div>
+            <div class="nav-item"
+            @click="calcTop = -100, currentPos = -1">Условия</div>
+            <div class="nav-item"
+            @click="calcTop = -200, currentPos = -2">Технология</div>
+            <div class="nav-item"
+            @click="calcTop = -300, currentPos = -3">Заказать звонок</div>
+
         </div>
         <div class="nav-contacts">
             <a href="tel:+79143453511" class="nav-item">+79143453511</a>
@@ -12,13 +19,24 @@
     <div class="landing" @wheel="wheel">
         <div class="page-1 page" :style="{ top: caclTop + '%' }">
             <div class="page-content">
-                <Header/>
+                <Header @call='callFromNav'/>
             </div>
         </div>
 
         <div class="page-2 page" :style="{ top: (caclTop + 100) + '%' }">
             <div class="page-content" :style="{ background: '#ffc107' }">
                 <Prices/>
+            </div>   
+        </div>
+
+        <div class="page-3 page" :style="{ top: (caclTop + 200) + '%' }">
+            <div class="page-content">
+                <How/>
+            </div>   
+        </div>
+        <div class="page-4 page" :style="{ top: (caclTop + 300) + '%' }">
+            <div class="page-content">
+                <CallUs/>
             </div>   
         </div>
     </div>
@@ -29,20 +47,29 @@ import { ref, computed } from 'vue'
 
 import Header from './pages/Header'
 import Prices from './pages/Prices'
+import How from './pages/How'
+import CallUs from './pages/CallUs'
 
 export default {
   name: 'App',
   components: {
     Header,
-    Prices
+    Prices,
+    How,
+    CallUs
   },
   setup(){
       const currentPos = ref(0)
-      const maxPos = -1
+      const maxPos = -3
       const caclTop = computed(()=>{
           return (currentPos.value * 100)
       })
       let stopper = false;
+      const callFromNav = (num1, num2) =>
+      {
+          caclTop.value = num1;
+          currentPos.value = num2;
+      }
       const wheel = (ev)=>{
           if(stopper){
               return
@@ -67,13 +94,14 @@ export default {
       return {
           caclTop, currentPos,
 
-          wheel
+          wheel, callFromNav
       }
   }
 }
 </script>
 
 <style>
+
 .nav-top {
     z-index: 1;
     color: #c7c7c7;
@@ -85,7 +113,7 @@ export default {
     font-size: 19px;
 }
 .nav {
-    width: 30%;
+    width: 50%;
     display: flex;
 }
 .nav-item {
@@ -188,6 +216,7 @@ h1, h2 {
     padding: 35px;
     font-size: 35px;
     color: #484848;
+    margin-top: 10%;
 }
 .block-title-border {
     width: 70px;
@@ -207,7 +236,7 @@ element.style {
     font-size: 24px;
     padding: 20px;
     border-radius: 7px;
-    color: white;
+    color: black;
     display: inline-block;
 }
 .mini-card-icon {
@@ -216,7 +245,7 @@ element.style {
 .mini-card-icon svg {
     width: 100%;
     height: 100%;
-    fill: white;
+    fill: black;
 }
 .cards{
     display: flex;
@@ -246,7 +275,7 @@ element.style {
     text-align: center;
     display: flex;
     justify-content: center;
-    color: white;
+    color: black;
     font-size: 24px;
     padding: 50px;
 }
@@ -259,10 +288,10 @@ element.style {
     padding: 10px;
     border-radius: 6px;
     background: #f9c028;
-    border: 1px solid white;
+    border: 1px solid black;
     outline: 0px;
     font-size: 24px;
-    color: white;
+    color: black;
     width: 200px;
 }
 @media (max-width: 400px) {
@@ -380,6 +409,65 @@ element.style {
 @media (max-width: 500px) {
     .contact {
        width: 100%;
+    }
+}
+@media (max-width: 1190px){
+    .nav{
+        width: 100%;
+        padding: 0 20px;
+    }
+    .nav-contacts .nav-item{
+        display: none;
+    }
+    .nav{
+        min-width: 100%;
+        margin: 0 auto;
+        justify-content: center;
+    }
+    .top-content-center{
+        padding-top: 60px;
+    }
+}
+@media (max-width: 980px){
+    .block-content{
+        max-width: 100%;
+    }
+    .block-title{
+        padding: 10px;
+        margin-top: 10px;
+    }
+    .block.block-orange{
+        padding-top: 100px;
+    }
+    .cards{ 
+        flex-direction: column;
+        align-items: center;
+    }
+    .mini-card{
+        width: 100%;
+    }
+    .mini-card-icon{
+        margin: 0 auto;
+    }
+    .mini-card-title{
+        text-align: center;
+}
+}
+@media (max-width: 700px){
+    .block{
+    }
+}
+@media (max-width: 500px){
+    .nav-top{
+        display: none;
+    }
+    .header-title{
+        padding: 0;
+        text-align:justify;
+    }
+
+    .call-button{
+        width: 200px;
     }
 }
 </style>
