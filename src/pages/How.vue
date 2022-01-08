@@ -8,16 +8,23 @@
           <!-- Табс-контейнер -->
           <div class="how-tabs-container">
             <nav class="tabs-items">
-              <a href="#tab_01" class="tabs-item">Из чего?</a>
-              <a href="#tab_02" class="tabs-item">Как?</a>
-              <a href="#tab_03" class="tabs-item">Зачем?</a>
+              <div class="tabs-item" @click='activateTab(0)' :class='{ color_tab: tabVis.one }'>Из чего?
+                  <div class="how-title-border" :class='{border_on: tabVis.one}'></div>
+              </div>
+              <div class="tabs-item" @click='activateTab(1)' :class='{ color_tab: tabVis.two }'>Как?
+                    <div class="how-title-border" :class='{border_on: tabVis.two }'></div>
+
+              </div>
+              <div class="tabs-item" @click='activateTab(2)' :class='{ color_tab: tabVis.three }'>Зачем?
+                    <div class="how-title-border" :class='{border_on: tabVis.three}'></div>
+              </div>
             </nav>
             <div class="tabs-body">
             <!-- Блок 1 -->
-          <div id="tab_01" class="tabs-block">
+          <div id="tab_01" class="tabs-block" :class="{color_tab: tabVis.one }" :style="{ left: (calcLeft + 5) + '%' }">
               <div class="block-list">
               <div class="subtitle">Для строительной смеси используются:</div>
-              <div class="list"><ul>
+              <div class="list" :style="{activateTab}"><ul>
               <li>Мытый крупнодисперсный песок первого класса величиной от 2,5 до 3 мм</li>
               <li>Фиброволокно из полипропилена – укрепляет смесь, предупреждает появление трещин и улучшает качество сцепления</li>
               <li>Цемент марки М500</li>
@@ -27,7 +34,7 @@
               </div>
           </div>
             <!-- Блок 2 -->
-          <div id="tab_02" class="tabs-block">
+          <div id="tab_02" class="tabs-block" :class="{color_tab: tabVis.two }" :style="{ left: (calcLeft + 110) + '%' }">
               <div class="block-list">
               <div class="subtitle">Механизированная полусухая стяжка пола по немецкой технологии выполняется в несколько этапов:</div>
               <div class="list"><ul>
@@ -42,7 +49,7 @@
               </div>    
           </div>
             <!-- Блок 3 -->
-          <div id="tab_03" class="tabs-block">
+          <div id="tab_03" class="tabs-block" :class="{color_tab: tabVis.three }" :style="{ left: (calcLeft + 210) + '%' }">
               <div class="block-list">
               <div class="subtitle">Преимущества устройства пола по технологии полусухой стяжки:</div>
               <div class="list"><ul>
@@ -66,9 +73,42 @@
 <script>
 export default {
     name: 'How',
+    data() {
+        return {
+            tabVis: {
+                one: true,
+                two: false,
+                three: false
+            },
+            calcLeft: 0,
+        }
+    },
+    methods: {
+        activateTab(n){
+                if (n === 0) {
+                    this.tabVis.one = true,
+                    this.tabVis.two = false,
+                    this.tabVis.three = false,
+                    this.calcLeft = 0;
+                                }
+                else if (n === 1) {
+                    this.tabVis.one = false,
+                    this.tabVis.two = true,
+                    this.tabVis.three = false
+                    this.calcLeft = -105;
+                } else if (n === 2) {
+                    this.tabVis.one = false,
+                    this.tabVis.two = false,
+                    this.tabVis.three = true
+                    this.calcLeft = -205;
+                }
+            }
+    },
+    computed: {
 
+        }
+    }
 
-}
 </script>
 
 <style>
@@ -87,12 +127,18 @@ export default {
     font-size: 3vh;
     color: #484848;
 }
-.title-border{
-    width: 100px;
+.how-title-border{
+    width: 0px;
     height: 2px;
     margin: auto;
     background: #ffc107;
     margin-bottom: 1vh;
+    position: absolute;
+    top: 50px;
+    transition: all 0.5s ease 0s;
+}
+.border_on{
+    width: 60px;
 }
 
 .how-blocks{
@@ -102,9 +148,13 @@ export default {
 .how-tabs-container{
 
 }
+.tabs-body{
+    position: relative;
+}
 .tabs-items{
     display: flex;
     font-size: 2em;
+
 }
 .tabs-item {
     flex: 0 1 33.333%;
@@ -113,60 +163,48 @@ export default {
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    color: black;
-    text-decoration: none;
+    color: rgb(211, 211, 211);
     z-index: 2;
+    transition: all 0.4s ease 0s;
+    position: relative;
 }
 .tabs-block{
-    position: relative;
-    display: none;
-    padding: 10px;
-}
-.tabs-block:before {
-    content: '';
-    height: 50px;
-    width: 33.333%;
     position: absolute;
-    top: -50px;
+    padding: 10px;
+    transition: all 0.2s ease 0s;
+    color: rgba(0, 0, 0, 0);
+}
+.tabs-block .list ul li{
+    list-style: none;
+}
+.list li{
+    position: relative;
+}
+.list li:before{
+    content: '';
+    background-color: #ffc107;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: -16px;
+
 }
 .tabs-block:nth-child(1){
-    background-color: white;
-    border: 2px solid #ffc107;
-    color: black;
-}
-.tabs-block:nth-child(1):before{
-    background-color: white;
-    border: 2px solid #ffc107;
-    border-bottom: none;
-    color: white;
-    left: -2px;
+    top: 0;
+    left: 0;
 }
 .tabs-block:nth-child(2){
-    background-color: white;
-    border: 2px solid #ffc107;
-    color: black;
-}
-.tabs-block:nth-child(2):before{
-    background-color: white;
-    border: 2px solid #ffc107;
-    border-bottom: none;
-    color: white;
-    left: 33.333%;
+    top: 0;
+    left: -100%;
 }
 .tabs-block:nth-child(3){
-    background-color: white;
-    border: 2px solid #ffc107;
+    top: 0;
+    left: 100%;
+}
+.color_tab{
     color: black;
-}
-.tabs-block:nth-child(3):before{
-    background-color: white;
-    border: 2px solid #ffc107;
-    border-bottom: none;
-    color: white;
-    right: -2px;
-}
-.tabs-block:target{
-    display: block;
 }
 .title{
     font-size: 2em;
@@ -186,9 +224,7 @@ export default {
 .list ul li{
     margin-top: 5px;
 }
-.list ul li::marker{
-    color: #ffc107;
-}
+
 @media (max-width: 1460px){
     .subtitle,
     .list ul li{

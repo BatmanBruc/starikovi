@@ -47,7 +47,12 @@ export default {
 }
 .top-content{
     height: 100%;
-    background: url('../assets/beton_potertosti_tekstura_146032_1920x1080.jpg')
+    background: url('../assets/beton_potertosti_tekstura_146032_1920x1080.jpg');
+}
+@media (min-width: 1080px) {
+    .top-content{
+        background-size: 100% 100%;
+    }
 }
 .top-content-wrapper {
     background: #020202c2;
