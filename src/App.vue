@@ -201,12 +201,7 @@ h1, h2 {
     position: relative;
 }
 .block {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto 0;
-    width: 100%;
-    height: 80%;
+    padding-top: 12vh;
 }
 .block-orange{
     background: #ffc107;
@@ -215,8 +210,7 @@ h1, h2 {
     text-align: center;
     padding: 35px;
     font-size: 35px;
-    color: #484848;
-    margin-top: 5%;
+    color: #a74d00;
 }
 .block-title-border {
     width: 70px;
@@ -379,10 +373,6 @@ element.style {
     cursor: pointer;
     border-radius: 30px;
 }
-.contact {
-    display: flex;
-    line-height: 40px;
-}
 .contact-icon {
     width: 40px;
     margin-right: 20px;
@@ -397,11 +387,6 @@ element.style {
 }
 .block.block-red .block-title{
     color: white;
-}
-.contacts {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
 }
 .block.block-red  .call-button {
     margin: auto;

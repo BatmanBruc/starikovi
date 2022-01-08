@@ -1,6 +1,6 @@
 <template>
     <div class="block block-orange">
-            <div class="block-title">Цены и условия <div class="block-title-border"></div></div>
+            <div class="title">Цены и условия <div class="block-title-border"></div></div>
             <div class="block-content">
                 <div class="cards">
                     <div class="mini-card">

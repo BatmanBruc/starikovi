@@ -2,9 +2,7 @@
   <div class="how-content">
       <div class="how-wrapper">
         <!-- Центральный заголовок  -->
-      <div class="how-title">Технология
-          <div class="title-border"></div>
-      </div>
+      <div class="title">Технология </div>
       <!-- 3 блока -->
       <div class="how-blocks">
           <!-- Табс-контейнер -->
