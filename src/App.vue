@@ -22,19 +22,24 @@
                 <Header @call='callFromNav'/>
             </div>
         </div>
-
         <div class="page-2 page" :style="{ top: (caclTop + 100) + '%' }">
+            <div class="page-content">
+                <Gallery/>
+            </div>   
+        </div>
+
+        <div class="page-3 page" :style="{ top: (caclTop + 200) + '%' }">
             <div class="page-content" :style="{ background: '#ffc107' }">
                 <Prices/>
             </div>   
         </div>
 
-        <div class="page-3 page" :style="{ top: (caclTop + 200) + '%' }">
+        <div class="page-4 page" :style="{ top: (caclTop + 300) + '%' }">
             <div class="page-content">
                 <How/>
             </div>   
         </div>
-        <div class="page-4 page" :style="{ top: (caclTop + 300) + '%' }">
+        <div class="page-5 page" :style="{ top: (caclTop + 400) + '%' }">
             <div class="page-content">
                 <CallUs/>
             </div>   
@@ -49,6 +54,7 @@ import Header from './pages/Header'
 import Prices from './pages/Prices'
 import How from './pages/How'
 import CallUs from './pages/CallUs'
+import Gallery from './pages/Gallery'
 
 export default {
   name: 'App',
@@ -56,11 +62,12 @@ export default {
     Header,
     Prices,
     How,
-    CallUs
+    CallUs,
+    Gallery
   },
   setup(){
       const currentPos = ref(0)
-      const maxPos = -3
+      const maxPos = -4
       const caclTop = computed(()=>{
           return (currentPos.value * 100)
       })

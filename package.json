@@ -10,7 +10,8 @@
   "dependencies": {
     "ant-design-vue": "^2.2.8",
     "core-js": "^3.6.5",
-    "vue": "^3.2.26"
+    "vue": "^3.2.26",
+    "vue3-carousel": "^0.1.35"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -33,7 +34,12 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "vue/no-deprecated-slot-attribute": "off",
+      "vue/no-deprecated-slot-scope-attribute": "off",
+      "vue/no-deprecated-scope-attribute": "off",
+      "no-unused-vars": "off"
+    }
   },
   "browserslist": [
     "> 1%",
