@@ -57,10 +57,11 @@ export default {
     width: 100px;
     height: 80px;
     display: none;
+    cursor: pointer;
 }
 #call-me-baby{
     z-index: 4;
-    width: 60px;
+    width: 90px;
     position: absolute;
     top: 0px;
     left: 10px;
@@ -70,17 +71,17 @@ export default {
 }
 .qn-call{
     position: relative;
-    top: -15px;
-    left: 0px;
+    top: 22px;
+    left: -120px;
     width: 200px;
     height: 100px;
     font-size: 2em;
     color: rgba(0, 0, 0, 0);
-    transition: all 0.5s ease 0s;
+    transition: all 0.2s ease 0s;
+    line-height: 20px;
 
 }
 .active_qn{
-    left: -120px;
     color: black;
     z-index: 3;
 }
