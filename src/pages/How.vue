@@ -167,11 +167,12 @@ export default {
     z-index: 2;
     transition: all 0.4s ease 0s;
     position: relative;
+    cursor: pointer;
 }
 .tabs-block{
     position: absolute;
     padding: 10px;
-    transition: all 0.2s ease 0s;
+    transition: all 0.4s ease 0s;
     color: rgba(0, 0, 0, 0);
 }
 .tabs-block .list ul li{
@@ -211,15 +212,18 @@ export default {
     text-align: center;
     margin-bottom: 1em;
 }
-.block-list{
+.block-list {
     padding: 10px;
+    margin-top: 40px;
 }
-.subtitle,
+
 .list ul li{
-    font-size: 2em;
+    font-size: 21px;
 }
-.subtitle{
+.subtitle {
     padding-left: 10px;
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 .list ul li{
     margin-top: 5px;
