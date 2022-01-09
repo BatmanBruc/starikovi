@@ -21,7 +21,7 @@
             </nav>
             <div class="tabs-body">
             <!-- Блок 1 -->
-          <div id="tab_01" class="tabs-block" :class="{color_tab: tabVis.one }" :style="{ left: (calcLeft + 5) + '%' }">
+          <div id="tab_01" class="tabs-block" :class="{color_tab: tabVis.one }" :style="{ left: (calcLeft + 0) + '%'}">
               <div class="block-list">
               <div class="subtitle">Для строительной смеси используются:</div>
               <div class="list" :style="{activateTab}"><ul>
@@ -34,7 +34,7 @@
               </div>
           </div>
             <!-- Блок 2 -->
-          <div id="tab_02" class="tabs-block" :class="{color_tab: tabVis.two }" :style="{ left: (calcLeft + 110) + '%' }">
+          <div id="tab_02" class="tabs-block" :class="{color_tab: tabVis.two }" :style="{ left: (calcLeft + 107) + '%' }">
               <div class="block-list">
               <div class="subtitle">Механизированная полусухая стяжка пола по немецкой технологии выполняется в несколько этапов:</div>
               <div class="list"><ul>
@@ -49,7 +49,7 @@
               </div>    
           </div>
             <!-- Блок 3 -->
-          <div id="tab_03" class="tabs-block" :class="{color_tab: tabVis.three }" :style="{ left: (calcLeft + 210) + '%' }">
+          <div id="tab_03" class="tabs-block" :class="{color_tab: tabVis.three }" :style="{ left: (calcLeft + 207) + '%' }">
               <div class="block-list">
               <div class="subtitle">Преимущества устройства пола по технологии полусухой стяжки:</div>
               <div class="list"><ul>
@@ -154,7 +154,6 @@ export default {
 .tabs-items{
     display: flex;
     font-size: 2em;
-
 }
 .tabs-item {
     flex: 0 1 33.333%;
@@ -174,6 +173,7 @@ export default {
     padding: 10px;
     transition: all 0.4s ease 0s;
     color: rgba(0, 0, 0, 0);
+    min-width: 100%;
 }
 .tabs-block .list ul li{
     list-style: none;
