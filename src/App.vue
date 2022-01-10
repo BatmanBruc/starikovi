@@ -44,6 +44,7 @@
                 <CallUs/>
             </div>   
         </div>
+        <call-me-baby @call='callFromNav' :level='currentPos'/>
     </div>
 </template>
 
@@ -55,6 +56,7 @@ import Prices from './pages/Prices'
 import How from './pages/How'
 import CallUs from './pages/CallUs'
 import Gallery from './pages/Gallery'
+import CallMeBaby from './components/CallMeBaby'
 
 export default {
   name: 'App',
@@ -63,7 +65,8 @@ export default {
     Prices,
     How,
     CallUs,
-    Gallery
+    Gallery,
+    CallMeBaby
   },
   setup(){
       const currentPos = ref(0)
