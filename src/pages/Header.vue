@@ -14,8 +14,8 @@
                 </div>
                 <div class="menu-buttons">
                     <div @click="$emit('call', -300, -1)" class="call-button button">Галерея</div>
-                    <div @click="$emit('call', -300, -2)" class="price-button button">Цены</div>
-                    <div @click="$emit('call', -300, -3)" class="tech-button button">Технология</div>
+                    <div @click="$emit('call', -300, -2)" class="call-button button">Цены</div>
+                    <div @click="$emit('call', -300, -3)" class="call-button button">Технология</div>
                     <div @click="$emit('call', -300, -4)" class="call-button button">Заказать звонок</div>
                     <!--<img src="../assets/5200-VBS_1000x560_blue-800x448.png" alt="">-->
                 </div>

@@ -16,7 +16,7 @@
             <a href="mailto:specpro25@gmail.com" class="nav-item">specpro25@gmail.com</a>
         </div>
     </div>-->
-    <div class="landing" @wheel="wheel">
+    <div class="landing" @wheel="wheel" v-touch:swipe="swipeHandler">
         <div class="page-1 page" :style="{ top: caclTop + '%' }">
             <div class="page-content">
                 <Header @call='callFromNav'/>
@@ -97,18 +97,45 @@ export default {
            stopper = false 
         }, 600)
       }
-
+        const swipeTop = (ev)=>{
+            if(currentPos.value == maxPos){
+                return
+              }
+              currentPos.value = currentPos.value - 1
+        }
+        const swipeDown = (ev)=>{
+            if(currentPos.value == 0){
+                return
+              }
+              currentPos.value = currentPos.value + 1
+        }
+        const swipeHandler = (ev)=>{
+            console.log(ev)
+            if(ev == 'top'){
+                if(currentPos.value == maxPos){
+                    return
+                }
+                currentPos.value = currentPos.value - 1
+            }else if(ev == 'bottom'){
+                if(currentPos.value == 0){
+                    return
+                }
+                currentPos.value = currentPos.value + 1
+            }
+        }
       return {
           caclTop, currentPos,
 
-          wheel, callFromNav
+          wheel, callFromNav, swipeTop, swipeHandler
       }
   }
 }
 </script>
 
 <style>
-
+html{
+    touch-action: pan-down;
+}
 .nav-top {
     z-index: 1;
     color: #c7c7c7;
