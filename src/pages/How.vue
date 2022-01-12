@@ -119,7 +119,7 @@ export default {
     color: #484848;
 }
 .how-wrapper{
-    margin: 10vh auto;
+    margin: 3vh auto;
 }
 .how-title{
     text-align: center;
@@ -236,15 +236,25 @@ export default {
     }
 }
 @media (max-width: 1010px){
-    .subtitle,
-    .list ul li{
-    font-size: 1.3em;
+       .how-wrapper .title{
+        padding: 5px;
+        margin-bottom: 0;
+        font-size: 26px;
+    }
+    .block-list{margin-top: 0; font-size: 14px; line-height: 18px;padding: 0px;
+    }
+    .tabs-item{
+    font-size: 18px;
     }
 }
 @media (max-width: 640px){
-    .subtitle,
-    .list ul li{
-    font-size: 1.2em;}
+      .how-wrapper .title{
+        padding: 5px;
+        margin-bottom: 0;
+        font-size: 24px;
+    }
+    .block-list{margin-top: 0; font-size: 11px; line-height: 14px;padding: 0px;
+    }
     .tabs-item{
     font-size: 18px;
     }
@@ -252,15 +262,23 @@ export default {
 @media (max-width: 550px){
         .subtitle,
     .list ul li{
-    font-size: 1.0em;}
+    font-size: 1.3em;
+    line-height: 16px;}
     .how-wrapper{
     margin: 5vh auto;
 }
 }
+@media (max-width: 426px){
+    .subtitle,
+    .list ul li{
+    font-size: 1em;
+    line-height: 15px;}
+}
 @media (max-width: 380px){
         .subtitle,
     .list ul li{
-    font-size: 0.9em;}
+    font-size: 1.2em;
+    line-height: 15px;}
 }
 @media (max-width: 321px){
     .subtitle,
@@ -269,5 +287,241 @@ export default {
     .how-wrapper{
     margin: 0 auto;
 }
+}
+
+@media (width: 375px) and (height: 667px) {
+    .block-list{margin-top: 0;
+    }
+    .how-wrapper .title{
+        padding: 0px;
+        margin-bottom: 0;
+        font-size: 24px;
+    }    
+    .block-list{margin-top: 0; font-size: 11px; line-height: 9px;padding: 0px;
+    }
+     .tabs-block{
+        padding: 0;
+    }
+}
+@media (width: 414px) and (height: 896px) {
+    .how-wrapper .title{
+        padding: 5px;
+        margin-bottom: 0;
+        font-size: 24px;
+    }
+    .tabs-item{
+        font-size: 16px;
+    }
+    .tabs-block{
+        padding: 0;
+    }
+    .how-wrapper{
+        margin: 3vh auto;
+    }
+    .block-list{margin-top: 0; font-size: 20px; line-height: 15px;
+    }
+}
+@media (width: 390px) and (height: 844px) {
+      .how-wrapper .title{
+        padding: 5px;
+        margin-bottom: 0;
+        font-size: 24px;
+    }
+    .tabs-item{
+        font-size: 16px;
+    }
+    .tabs-block{
+        padding: 0;
+    }
+    .how-wrapper{
+        margin: 3vh auto;
+    }
+    .block-list{margin-top: 0; font-size: 16px; line-height: 15px;
+    }
+}
+@media (width: 393px) and (height: 851px) {
+      .how-wrapper .title{
+        padding: 5px;
+        margin-bottom: 0;
+        font-size: 24px;
+    }
+    .tabs-item{
+        font-size: 16px;
+    }
+    .tabs-block{
+        padding: 0;
+    }
+    .how-wrapper{
+        margin: 3vh auto;
+    }
+    .block-list{margin-top: 0; font-size: 16px; line-height: 16px;
+    }
+}
+@media (width: 360px) and (height: 740px) {
+
+.how-wrapper .title{
+        padding: 2px;
+        margin-bottom: 0;
+        font-size: 20px;
+    }
+    .tabs-item{
+        font-size: 18px;
+    }
+    .tabs-block{
+        padding: 0;
+    }
+    .how-wrapper{
+        margin: 2vh auto;
+    }
+    .block-list{margin-top: 5px; font-size: 12px; line-height: 12px; padding: 0;
+    }
+}
+@media (width: 412px) and (height: 915px) {
+    
+.how-wrapper .title{
+        padding: 5px;
+        margin-bottom: 0;
+        font-size: 24px;
+    }
+    .tabs-item{
+        font-size: 16px;
+    }
+    .tabs-block{
+        padding: 0;
+    }
+    .how-wrapper{
+        margin: 3vh auto;
+    }
+    .block-list{margin-top: 0; font-size: 20px; line-height: 16px;
+    }
+}
+@media (width: 768px) and (height: 1024px) {
+    
+.how-wrapper .title{
+        padding: 5px;
+        margin-bottom: 0;
+    }
+    .tabs-item{
+        font-size: 20px;
+    }
+    .tabs-block{
+        padding: 0;
+    }
+    .how-wrapper{
+        margin: 3vh auto;
+    }
+    .block-list{margin-top: 0; font-size: 20px; line-height: 25px;
+    }
+}
+@media (width: 912px) and (height: 1368px) {
+
+.how-wrapper .title{
+        padding: 10px;
+    }
+    .tabs-item{
+    }
+    .tabs-block{
+    }
+    .how-wrapper{
+        margin: 3vh auto;
+    }
+    .block-list{margin-top: 0; font-size: 24px; line-height: 28px;
+    }
+}
+@media (width: 540px) and (height: 720px) {
+    .how-wrapper .title{
+        padding: 5px;
+        margin-bottom: 0;
+    }
+    .tabs-item{
+        font-size: 20px;
+    }
+    .tabs-block{
+        padding: 0;
+    }
+    .how-wrapper{
+        margin: 3vh auto;
+    }
+    .block-list{margin-top: 0; font-size: 14px; line-height: 20px;
+    }
+}
+@media (width: 280px) and (height: 653px) {
+     .how-wrapper .title{
+        padding: 5px;
+        margin-bottom: 0;
+    }
+    .tabs-item{
+        font-size: 14px;
+    }
+    .tabs-block{
+        padding: 0;
+    }
+    .how-wrapper{
+        margin: 3vh auto;
+    }
+    .block-list{padding: 0;
+    margin-top: 0; font-size: 12px; line-height: 13px;
+    }
+}
+@media (width: 412px) and (height: 914px) {
+    .how-wrapper .title{
+        padding: 5px;
+        margin-bottom: 0;
+    }
+    .tabs-item{
+        font-size: 14px;
+    }
+    .tabs-block{
+        padding: 0;
+    }
+    .how-wrapper{
+        margin: 3vh auto;
+    }
+    .block-list{padding: 15px;
+    margin-top: 0; font-size: 17px; line-height: 18px;
+    }
+}
+@media (width: 1280px) and (height: 800px) {
+    .how-wrapper .title{
+        padding: 5px;
+        margin-bottom: 0;
+    }
+    .tabs-item{
+        font-size: 20px;
+    }
+    .tabs-block{
+        padding: 0;
+    }
+    .how-wrapper{
+        margin: 3vh auto;
+    }
+    .block-list{padding: 15px;
+    margin-top: 0; font-size: 13px; line-height: 18px;
+    }
+}
+@media (width: 1792px) and (height: 828px) {
+    .how-wrapper .title{
+        padding: 5px;
+        margin-bottom: 0;
+        font-size: 24px;
+    }
+    .tabs-item{
+        font-size: 16px;
+    }
+    .tabs-block{
+        padding: 0;
+    }
+    .how-wrapper{
+        margin: 3vh auto;
+    }
+    .block-list{margin-top: 0; font-size: 20px; line-height: 15px;
+    }
+}
+@media (min-width:100px) and (max-width:4000px) {
+    #tab_01,
+    #tab_02,
+    #tab_03{
+        min-width: 100%;
+    }
 }
 </style>

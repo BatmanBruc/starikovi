@@ -85,4 +85,18 @@ export default {
     color: black;
     z-index: 3;
 }
+@media (max-width: 426px){
+    .call-me-baby{
+        width: 70px;
+        bottom: 20px;
+        right: 42px;
+    }
+    #call-me-baby{
+    width: 60px;
+    }
+}   
+@media (max-width: 415px){
+        #call-me-baby{ display: none;
+        }
+}
 </style>
