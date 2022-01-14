@@ -1,9 +1,6 @@
 <template>
-    <div @click="$emit('call', -300, -4)" :class='{call_on: callOn}' class="call-me-baby" @mouseout="callMeBabyON" @mouseleave='callMeBabyOFF'>
-        <label class='qn-call' for="call-me-baby" :class="{active_qn: qnCall}">
-            Заказать звонок?
-        </label>
-      <IconCall id="call-me-baby" :color='color'/>
+    <div @click="$emit('call', -300, -3)" class="call-me-baby" @mouseout="callMeBabyON" @mouseleave='callMeBabyOFF'>
+      <IconCall id="call-me-baby"/>
     </div>
 </template>
 
@@ -56,7 +53,6 @@ export default {
     z-index: 50;
     width: 100px;
     height: 80px;
-    display: none;
     cursor: pointer;
 }
 #call-me-baby{
@@ -65,6 +61,16 @@ export default {
     position: absolute;
     top: 0px;
     left: 10px;
+    fill: #a74d00;
+    transition: fill 200ms;
+}
+#call-me-baby:hover{
+    z-index: 4;
+    width: 90px;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    fill: orange;
 }
 .call_on{
     display: block;

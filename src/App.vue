@@ -23,28 +23,27 @@
             </div>
         </div>
         <div class="page-2" :class="{page: classPageOn, scroll: classScrollOn}">
-            <div class="page-content">
-                <Gallery/>
-            </div>   
-        </div>
-
-        <div class="page-3" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content" :style="{ background: '#ffc107' }">
                 <Prices/>
             </div>   
         </div>
 
-        <div class="page-4" :class="{page: classPageOn, scroll: classScrollOn}">
+        <div class="page-3" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
                 <How/>
             </div>   
         </div>
-        <div class="page-5" :class="{page: classPageOn, scroll: classScrollOn}">
+        <div class="page-4" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
                 <CallUs/>
             </div>   
         </div>
-        <call-me-baby @call='callFromNav' :level='currentPos'/>
+        <div class="page-5" :class="{page: classPageOn, scroll: classScrollOn}">
+            <div class="page-content">
+                <Gallery/>
+            </div>   
+        </div>
+        <call-me-baby @call='callFromNav' v-if="currentPos != -3"/>
     </div>
 </template>
 

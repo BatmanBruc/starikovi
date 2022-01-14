@@ -15,6 +15,19 @@ export default {
   },
   setup(){
       const imgs = [
+
+          {
+              src: 'f18eaad4-75e2-4b4d-be0d-788ae2dbaaf3.jpeg',
+              alt: 'Заливка крыши'
+          },
+          {
+              src: '3613039d-01e5-4398-999a-e048c3c34e6f.jpeg',
+              alt: 'Залитая ровная крыша'
+          },
+          {
+              src: '99dd4c0a-9669-4b93-8b95-bfadb56f8247.jpeg',
+              alt: 'Растворонасос для стяжки пола Mortel Meister 5200R'
+          },
           {
               src: 'qckFtpW8UHE.jpg',
               alt: 'Пол в квартире'
@@ -40,13 +53,10 @@ export default {
               alt: 'Рабочий занимается полами'
           },
           {
-              src: 'DMkCNqIvxBw.jpg',
-              alt: 'Рабочий смотрит полы'
-          },
-          {
               src: '8BUzsGNejgQ.jpg',
               alt: 'Рабочий выравнивает пол'
           },
+
       ]
 
       return {
