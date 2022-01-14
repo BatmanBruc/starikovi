@@ -1,5 +1,5 @@
 <template>
-  <carousel :itemsToShow="0.95" :wrapAround="true">
+  <carousel :itemsToShow="itemsToShow" :wrapAround="true">
     <slide v-for="item in items" :key="item">
       <div class="carousel__item"><img :alt="item.alt" :src="'/imgs/photo/' + item.src"/></div>
     </slide>
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 
@@ -24,6 +25,12 @@ export default {
       items: []
   },
   setup(){
+    const itemsToShow = ref(1.95)
+    if(innerWidth < 600)
+      itemsToShow.value = 0.95
+    return {
+      itemsToShow
+    }
   }
 }
 
@@ -55,7 +62,7 @@ li.carousel__slide.carousel__slide--visible {
 .carousel__item {
     width: 83%;
     overflow: hidden;
-    height: 685px;
+    height: 600px;
     background: #ffffff;
     border: 1px solid #364637;
     border-radius: 4px;
@@ -73,8 +80,7 @@ li.carousel__slide.carousel__slide--next {
     overflow: visible;
 }
 .carousel__item img {
-    width: 100%;
-    position: absolute;
+    height: 100%;
     left: 0px;
     bottom: 0px;
 }

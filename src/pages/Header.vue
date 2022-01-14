@@ -7,9 +7,14 @@
             </div>
             <div class="top-content-center">
                 <div class="header-title">
-                    <h1 class="title-main">механизированная полусухая стяжка</h1>
+                    <h1 class="title-main">Механизированная полусухая стяжка <br/><span class="header-one-day">за 1 день</span></h1>
                     <div class="header-text">
-                        Полусухая или механизированная стяжка пола – это процесс выравнивания поверхности с использованием специальной техники и смеси из небольшого количества воды. Это позволяет производить масштабные работы за короткий период времени и с небольшими трудозатратами рабочих.
+                            Механизированная полусухая стяжка во Владивостоке, Артёме и Приморском крае по выгодным ценам.<br/>
+                            <ul>
+                                <li class="header-list">Выравнивание пола и заливка крыш до 600 кв.м. в день</li>
+                                <li class="header-list">Работаем с большими и малыми объемами.</li>
+                                <li class="header-list">За прошлый год залили 25 тыс. кв. метров стяжки</li>
+                            </ul>
                     </div>
                 </div>
                 <div class="menu-buttons">
@@ -36,6 +41,11 @@ export default {
 </script>
 
 <style>
+span.header-one-day {
+    padding: 10px;
+    background: #d21616;
+    border-radius: 4px;
+}
 .logo-company {
     display: flex;
     justify-content: center;
@@ -79,16 +89,19 @@ export default {
 .header-title {
     color: #ffc107;
     text-transform: uppercase;
-    width: 530px;
+    width: 646px;
+}
+li.header-list {
+    font-size: 22px;
+    margin: 16px 0px;
 }
 .header-text {
-    max-width: 530px;
     font-size: 24px;
     text-transform: none;
     color: #cecece;
 }
 .title-main {
-        font-size: 40px;
+font-size: 30px;
     color: white;
     line-height: 45px;
     margin-bottom: 20px;

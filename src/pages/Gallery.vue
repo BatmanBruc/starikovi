@@ -62,6 +62,7 @@ export default {
     background: #0c4235;
     height: 100%;
     padding: 0px 40px;
+    padding-top: 0px!important;
 }
 .gallery-title{
     color: #848484;
