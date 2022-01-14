@@ -17,29 +17,29 @@
         </div>
     </div>-->
     <div class="landing" @wheel="wheel" v-touch:swipe="swipeHandler">
-        <div class="page-1 page" :style="{ top: caclTop + '%' }">
+        <div class="page-1" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
                 <Header @call='callFromNav'/>
             </div>
         </div>
-        <div class="page-2 page" :style="{ top: (caclTop + 100) + '%' }">
+        <div class="page-2" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
                 <Gallery/>
             </div>   
         </div>
 
-        <div class="page-3 page" :style="{ top: (caclTop + 200) + '%' }">
+        <div class="page-3" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content" :style="{ background: '#ffc107' }">
                 <Prices/>
             </div>   
         </div>
 
-        <div class="page-4 page" :style="{ top: (caclTop + 300) + '%' }">
+        <div class="page-4" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
                 <How/>
             </div>   
         </div>
-        <div class="page-5 page" :style="{ top: (caclTop + 400) + '%' }">
+        <div class="page-5" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
                 <CallUs/>
             </div>   
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, reactive } from 'vue'
 
 import Header from './pages/Header'
 import Prices from './pages/Prices'
@@ -66,14 +66,54 @@ export default {
     How,
     CallUs,
     Gallery,
-    CallMeBaby
+    CallMeBaby,
   },
   setup(){
+      // Константа выбора типа скролла
+      const typeScroll = ref('')
+      // Присвоения страницам класса "страничек"
+      const classPageOn = ref(false)
+      // Присвоение страница класса "скролл"
+      const classScrollOn = ref(false)
+      // Выбор типа скролла
+      const selectTypeScroll = () => {
+            // Если высота экрана больше чем ширина
+            if (window.screen.height > window.screen.width) {
+
+                // Тип скролла - наложение 
+                typeScroll.value = 'scroll'
+                classScrollOn.value = true
+          // Иначе "странички" 
+          } else {typeScroll.value = 'page'
+          classPageOn.value = true
+              // P.S. Виталя, был бы код "странички" здесь, думаю, было бы пизже.
+                  }} 
+      onMounted(() => { selectTypeScroll()})
+      // PAGE SCROLL SYSTEM - Тип "странички"
+      // Ниже я добавил много повторяющего if (typeScroll.value == 'page'), но думаю потом можно это как-то более оптимизировать.
       const currentPos = ref(0)
       const maxPos = -4
       const caclTop = computed(()=>{
-          return (currentPos.value * 100)
+          if (typeScroll.value == 'page'){
+                   return ((currentPos.value * 100) + 0) + '%'} else {return currentPos.value}
       })
+      const caclTopTwo = computed(() => {    
+              if (typeScroll.value == 'page'){
+                   return ((currentPos.value * 100) + 100) + '%'} else {return currentPos.value}
+      })
+      const caclTopThree = computed(()=>{
+          if (typeScroll.value == 'page'){
+                   return ((currentPos.value * 100) + 200) + '%'} else {return currentPos.value}
+      })
+      const caclTopFour = computed(()=>{
+          if (typeScroll.value == 'page'){
+                   return ((currentPos.value * 100) + 300) + '%'} else {return currentPos.value}
+      } )    
+      const caclTopFive = computed(()=>{
+          if (typeScroll.value == 'page'){
+                   return ((currentPos.value * 100) + 400) + '%'} else {return currentPos.value}
+      })
+      
       let stopper = false;
       const callFromNav = (num1, num2) =>
       {
@@ -81,6 +121,7 @@ export default {
           currentPos.value = num2;
       }
       const wheel = (ev)=>{
+          if (typeScroll.value == 'page'){
           if(stopper){
               return
           }
@@ -97,22 +138,28 @@ export default {
           }
         stopper = true
         setTimeout(()=>{
+                        if (typeScroll.value == 'page'){
            stopper = false 
-        }, 600)
-      }
+        }}, 600)
+      }}
         const swipeTop = (ev)=>{
+            if (typeScroll.value == 'page'){
             if(currentPos.value == maxPos){
                 return
               }
               currentPos.value = currentPos.value - 1
+            }
         }
         const swipeDown = (ev)=>{
+            if (typeScroll.value == 'page'){
             if(currentPos.value == 0){
                 return
               }
               currentPos.value = currentPos.value + 1
         }
+        }
         const swipeHandler = (ev)=>{
+            if (typeScroll.value == 'page'){
             console.log(ev)
             if(ev == 'top'){
                 if(currentPos.value == maxPos){
@@ -125,11 +172,12 @@ export default {
                 }
                 currentPos.value = currentPos.value + 1
             }
+            }
         }
       return {
-          caclTop, currentPos,
+          caclTop, currentPos, typeScroll, classPageOn, classScrollOn, caclTopTwo, caclTopThree, caclTopFour, caclTopFive,
 
-          wheel, callFromNav, swipeTop, swipeHandler
+          wheel, callFromNav, swipeTop, swipeHandler, selectTypeScroll
       }
   }
 }
@@ -163,11 +211,54 @@ html{
     display: flex;
     justify-content: flex-end;
 }
+/* Стили для "страничек" */
 .page {
     height: 100%;
     position: fixed;
     width: 100%;
     transition: 600ms top;
+}
+.page:nth-child(1){
+        top: v-bind(caclTop);
+}
+.page:nth-child(2){
+    top: v-bind(caclTopTwo);
+}
+.page:nth-child(3){
+    top: v-bind(caclTopThree);
+}
+.page:nth-child(4){
+    top: v-bind(caclTopFour);
+}
+.page:nth-child(5){
+    top: v-bind(caclTopFive);
+}
+/* Стили для "скролла" */
+.scroll{
+position: relative;    
+overflow: hidden;
+top: 50vh;
+min-height: 50vh;
+}
+.scroll:nth-child(1){
+            top: v-bind(caclTop);
+
+}
+.scroll:nth-child(2){
+    z-index: 10;    top: v-bind(caclTopTwo);
+
+}
+.scroll:nth-child(3){
+    z-index: 20;    top: v-bind(caclTopThree);
+
+}
+.scroll:nth-child(4){
+    z-index: 30;    top: v-bind(caclTopFour);
+
+}
+.scroll:nth-child(5){
+    z-index: 40;    top: v-bind(caclTopFive);
+
 }
 .logo {
     width: 200px;
@@ -457,7 +548,6 @@ element.style {
         margin-top: 10px;
     }
     .block.block-orange{
-        padding-top: 100px;
     }
     .cards{ 
         flex-direction: column;
@@ -489,5 +579,70 @@ element.style {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
+}
+@media (max-width: 376px) and (max-height: 668px) {
+        .mini-card{
+        padding: 7px;
+    }
+}
+@media (max-width: 415px) and (max-height: 897px) {
+    .block.block-orange{
+        padding-top: 10px;
+    }
+    .block-orange .title{
+        padding: 15px;
+    }
+}
+@media (max-width: 391px) and (max-height: 845px) {
+        .block.block-orange{
+        padding-top: 5px;
+    }
+    .block-orange .title{
+        padding: 8px;
+    }
+    .title{
+        margin-bottom: 0;
+    }
+}
+@media (max-width: 394px) and (max-height: 852px) {
+    .title{
+        margin-bottom: 0;
+    }
+}
+@media (max-width: 394px) and (max-height: 852px) {
+    .mini-card-title{
+        font-size: 16px;
+    }
+}
+@media (max-width: 413px) and (max-height: 916px) {
+    .title{
+        margin-bottom: 0;
+    }
+     .block.block-orange{
+        padding-top: 10px;
+    }
+}
+@media (max-width: 541px) and (max-height: 721px) {
+        .title{
+        margin-bottom: 0;
+        padding: 8px;
+    }
+     .block.block-orange{
+        padding-top: 7px;
+    }
+        .mini-card-title{
+        font-size: 14px;
+    }
+}
+@media (max-width: 281px) and (max-height: 654px) {
+    .title{
+        font-size: 20px;
+    }
+    .mini-card{
+        padding: 5px;
+    }
+    .cal{
+        font-size: 12px;
+    }
 }
 </style>
