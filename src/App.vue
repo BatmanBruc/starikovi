@@ -17,29 +17,29 @@
         </div>
     </div>-->
     <div class="landing" @wheel="wheel" v-touch:swipe="swipeHandler">
-        <div class="page-1" :class="{page: classPageOn, scroll: classScrollOn}" :style="{ top: caclTop + '%' }">
+        <div class="page-1" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
                 <Header @call='callFromNav'/>
             </div>
         </div>
-        <div class="page-2" :class="{page: classPageOn, scroll: classScrollOn}" :style="{ top: (caclTop + 100) + '%' }">
+        <div class="page-2" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
                 <Gallery/>
             </div>   
         </div>
 
-        <div class="page-3" :class="{page: classPageOn, scroll: classScrollOn}" :style="{ top: (caclTop + 200) + '%' }">
+        <div class="page-3" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content" :style="{ background: '#ffc107' }">
                 <Prices/>
             </div>   
         </div>
 
-        <div class="page-4" :class="{page: classPageOn, scroll: classScrollOn}" :style="{ top: (caclTop + 300) + '%' }">
+        <div class="page-4" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
                 <How/>
             </div>   
         </div>
-        <div class="page-5" :class="{page: classPageOn, scroll: classScrollOn}" :style="{ top: (caclTop + 400) + '%' }">
+        <div class="page-5" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
                 <CallUs/>
             </div>   
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, reactive } from 'vue'
 
 import Header from './pages/Header'
 import Prices from './pages/Prices'
@@ -79,6 +79,7 @@ export default {
       const selectTypeScroll = () => {
             // Если высота экрана больше чем ширина
             if (window.screen.height > window.screen.width) {
+
                 // Тип скролла - наложение 
                 typeScroll.value = 'scroll'
                 classScrollOn.value = true
@@ -93,11 +94,26 @@ export default {
       const currentPos = ref(0)
       const maxPos = -4
       const caclTop = computed(()=>{
-
-          return (currentPos.value * 100
-            
-          )
+          if (typeScroll.value == 'page'){
+                   return ((currentPos.value * 100) + 0) + '%'} else {return currentPos.value}
       })
+      const caclTopTwo = computed(() => {    
+              if (typeScroll.value == 'page'){
+                   return ((currentPos.value * 100) + 100) + '%'} else {return currentPos.value}
+      })
+      const caclTopThree = computed(()=>{
+          if (typeScroll.value == 'page'){
+                   return ((currentPos.value * 100) + 200) + '%'} else {return currentPos.value}
+      })
+      const caclTopFour = computed(()=>{
+          if (typeScroll.value == 'page'){
+                   return ((currentPos.value * 100) + 300) + '%'} else {return currentPos.value}
+      } )    
+      const caclTopFive = computed(()=>{
+          if (typeScroll.value == 'page'){
+                   return ((currentPos.value * 100) + 400) + '%'} else {return currentPos.value}
+      })
+      
       let stopper = false;
       const callFromNav = (num1, num2) =>
       {
@@ -159,7 +175,7 @@ export default {
             }
         }
       return {
-          caclTop, currentPos, typeScroll, classPageOn, classScrollOn,
+          caclTop, currentPos, typeScroll, classPageOn, classScrollOn, caclTopTwo, caclTopThree, caclTopFour, caclTopFive,
 
           wheel, callFromNav, swipeTop, swipeHandler, selectTypeScroll
       }
@@ -202,6 +218,21 @@ html{
     width: 100%;
     transition: 600ms top;
 }
+.page:nth-child(1){
+        top: v-bind(caclTop);
+}
+.page:nth-child(2){
+    top: v-bind(caclTopTwo);
+}
+.page:nth-child(3){
+    top: v-bind(caclTopThree);
+}
+.page:nth-child(4){
+    top: v-bind(caclTopFour);
+}
+.page:nth-child(5){
+    top: v-bind(caclTopFive);
+}
 /* Стили для "скролла" */
 .scroll{
 position: relative;    
@@ -210,19 +241,24 @@ top: 50vh;
 min-height: 50vh;
 }
 .scroll:nth-child(1){
-    position: fixed;
+            top: v-bind(caclTop);
+
 }
 .scroll:nth-child(2){
-    z-index: 10;
+    z-index: 10;    top: v-bind(caclTopTwo);
+
 }
 .scroll:nth-child(3){
-    z-index: 20;
+    z-index: 20;    top: v-bind(caclTopThree);
+
 }
 .scroll:nth-child(4){
-    z-index: 30;
+    z-index: 30;    top: v-bind(caclTopFour);
+
 }
 .scroll:nth-child(5){
-    z-index: 40;
+    z-index: 40;    top: v-bind(caclTopFive);
+
 }
 .logo {
     width: 200px;
