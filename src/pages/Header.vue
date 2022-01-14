@@ -182,6 +182,18 @@ font-size: 30px;
         text-align: center;
         line-height: 30px;
     }
+    li.header-list {
+        font-size: 18px;
+        margin: 2px 0px;
+    }
+    span.header-one-day {
+        padding: 6px;
+        background: #d21616;
+        border-radius: 4px;
+        display: block;
+        margin: auto;
+        width: 150px;
+    }
     .logo-text{
     }
     .header-title{
@@ -194,7 +206,7 @@ font-size: 30px;
     .button{
         margin: 0 auto;
         margin-top: 15px;
-        width: 100%;
+        font-size: 18px;
     }
 }
 </style>

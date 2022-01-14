@@ -136,6 +136,10 @@ a.contact-title {
     .contact-image{
         width: 2em;
     }
+    .title{
+        font-size: 24px;
+        padding-bottom: 39px!important;
+    }
     .call-us input{
     max-width: 4vw;
     }
