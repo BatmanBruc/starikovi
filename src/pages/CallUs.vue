@@ -1,10 +1,10 @@
 <template>
-  <div class="call-us">
+  <div  class="call-us">
       <div class="call-us-wrapper">
           <div class="block-call">
               <div class="title title-call">Заказать звонок
               </div>
-              <form class="call-form">
+              <form class="call-form" id="call-form">
                     <div class="field">
                         <div class="field-title">Имя</div>
                         <input type="text" class="input-name">

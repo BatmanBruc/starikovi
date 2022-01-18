@@ -1,5 +1,5 @@
 <template>
-  <div class="how-content">
+  <div  class="how-content">
       <div class="how-wrapper">
         <!-- Центральный заголовок  -->
       <div class="title">Технология </div>
@@ -71,6 +71,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'How',
     data() {
@@ -103,6 +104,7 @@ export default {
                     this.calcLeft = -205;
                 }
             }
+
     },
     computed: {
 
@@ -239,9 +241,9 @@ export default {
        .how-wrapper .title{
         padding: 5px;
         margin-bottom: 0;
-        font-size: 26px;
+        font-size: 28px;
     }
-    .block-list{margin-top: 0; font-size: 14px; line-height: 18px;padding: 0px;
+    .block-list{margin-top: 0; font-size: 15px; line-height: 20px;padding: 0px;
     }
     .tabs-item{
     font-size: 18px;

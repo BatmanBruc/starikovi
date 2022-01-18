@@ -20,28 +20,28 @@
 
         <div id="page1" class="page-1" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
-                <Header @call='callFromNav'/>
+                <Header  :typescroll='typeScroll' @call='callFromNav'/>
             </div>
         </div>
         <div id="page2" class="page-2" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content" :style="{ background: '#ffc107' }">
-                <Prices/>
+                <Prices id="prices"/>
             </div>   
         </div>
 
         <div id="page3" class="page-3" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
-                <How/>
+                <How id="how"/>
             </div>   
         </div>
         <div id="page4" class="page-4" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
-                <CallUs/>
+                <CallUs id="call-us"/>
             </div>   
         </div>
         <div id="page5" class="page-5" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
-                <Gallery/>
+                <Gallery id="gallery"/>
             </div>   
         </div>
         <call-me-baby @click="currentPos = -3" @call='callFromNav' v-if="typeScroll == 'page' && currentPos != -3 && currentPos != 0"/>
@@ -117,11 +117,17 @@ export default {
       })
       
       let stopper = false;
-      const callFromNav = (num1, num2) =>
-      {
-          caclTop.value = num1;
-          currentPos.value = num2;
+      const callFromNav = (obj) => { 
+        if (typeScroll.value == 'page'){
+            currentPos.value = obj;
+            } else if (typeScroll.value == 'scroll') {
+                    window.scrollTo({
+                    top: document.getElementById(obj).offsetTop,     
+                    behavior: "smooth"
+                    })
+    }
       }
+
       const wheel = (ev)=>{
           if (typeScroll.value == 'page'){
           if(stopper){
@@ -257,7 +263,7 @@ html{
 .scroll{
 position: relative;    
 overflow-x: hidden;
-min-height: 100vh;
+height: 100vh;
 }
 .scroll:nth-child(1){
 
@@ -271,7 +277,11 @@ min-height: 100vh;
 .scroll:nth-child(4){
 }
 .scroll:nth-child(5){
-
+    height: 50vh;
+}
+.scroll:nth-child(5) .page-content,
+.scroll:nth-child(5) .block-gallery{
+    min-height: 50vh;
 }
 .logo {
     width: 200px;

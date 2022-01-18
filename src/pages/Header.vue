@@ -18,10 +18,10 @@
                     </div>
                 </div>
                 <div class="menu-buttons">
-                    <div @click="$emit('call', -300, -1)" class="call-button button">Галерея</div>
-                    <div @click="$emit('call', -300, -2)" class="call-button button">Цены</div>
-                    <div @click="$emit('call', -300, -3)" class="call-button button">Технология</div>
-                    <div @click="$emit('call', -300, -4)" class="call-button button">Заказать звонок</div>
+                    <div @click="callFromHeader(-4, 'page5')" class="call-button button">Галерея</div>
+                    <div @click="callFromHeader(-1, 'page2')" class="call-button button">Цены</div>
+                    <div @click="callFromHeader(-2, 'page3')" class="call-button button">Технология</div>
+                    <div @click="callFromHeader(-3, 'page4')" class="call-button button">Заказать звонок</div>
                     <!--<img src="../assets/5200-VBS_1000x560_blue-800x448.png" alt="">-->
                 </div>
             </div>
@@ -30,13 +30,29 @@
 </template>
 
 <script>
+
 export default {
   name: 'Header',
-  setup(){
+  props: {
+      typescroll: {
+          type: String
+      }
+  },
+  setup(props, { emit }){
+      function callFromHeader(num, object) {
+          if (props.typescroll == 'page') {
+            emit('call', num)
+            } else if (props.typescroll == 'scroll') {
+                emit('call', object)
+                console.log(object)
+            }
+      }
       return {
+          callFromHeader
       }
   }
 }
+
 </script>
 
 <style>
@@ -73,6 +89,7 @@ span.header-one-day {
     justify-content: center;
     padding-bottom: 60px;
     position: relative;
+    padding-left: 2vw;
 }
 .logo-img {
     width: 50px;
