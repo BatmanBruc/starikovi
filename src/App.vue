@@ -17,33 +17,34 @@
         </div>
     </div>-->
     <div class="landing" @wheel="wheel" v-touch:swipe="swipeHandler">
-        <div class="page-1" :class="{page: classPageOn, scroll: classScrollOn}">
+
+        <div id="page1" class="page-1" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
                 <Header @call='callFromNav'/>
             </div>
         </div>
-        <div class="page-2" :class="{page: classPageOn, scroll: classScrollOn}">
+        <div id="page2" class="page-2" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content" :style="{ background: '#ffc107' }">
                 <Prices/>
             </div>   
         </div>
 
-        <div class="page-3" :class="{page: classPageOn, scroll: classScrollOn}">
+        <div id="page3" class="page-3" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
                 <How/>
             </div>   
         </div>
-        <div class="page-4" :class="{page: classPageOn, scroll: classScrollOn}">
+        <div id="page4" class="page-4" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
                 <CallUs/>
             </div>   
         </div>
-        <div class="page-5" :class="{page: classPageOn, scroll: classScrollOn}">
+        <div id="page5" class="page-5" :class="{page: classPageOn, scroll: classScrollOn}">
             <div class="page-content">
                 <Gallery/>
             </div>   
         </div>
-        <call-me-baby @call='callFromNav' v-if="currentPos != -3"/>
+        <call-me-baby @click="currentPos = -3" @call='callFromNav' v-if="typeScroll == 'page' && currentPos != -3 && currentPos != 0"/>
     </div>
 </template>
 
@@ -56,6 +57,8 @@ import How from './pages/How'
 import CallUs from './pages/CallUs'
 import Gallery from './pages/Gallery'
 import CallMeBaby from './components/CallMeBaby'
+import $ from 'jquery'
+
 
 export default {
   name: 'App',
@@ -173,8 +176,26 @@ export default {
             }
             }
         }
-      return {
-          caclTop, currentPos, typeScroll, classPageOn, classScrollOn, caclTopTwo, caclTopThree, caclTopFour, caclTopFive,
+        // SCROLL
+        $(function scrollPage(){ 
+            if (typeScroll.value == 'scroll'){
+        /* Укажи id всех блоков через запятую, которым нужно добавить эффект наложения */
+             var id = '#page1,#page2,#page3,#page4,#page5';
+            $('head').append('<style>body {overflow-x: hidden;}#allrecords {overflow: visible !important;}#t-header,#t-footer {position: relative;z-index: 2;} .t-rec {position: relative;z-index: 1;overflow-x: hidden;}'+id+' { position: -webkit-sticky; position: sticky; top: 0; z-index: 0;}</style>');
+
+             $(window).on('load resize', function(){
+             $(id).each(function(){
+                var topPosition = $(window).height() - $(this).height();
+                if (topPosition < 0) {
+                 $(this).css('top',topPosition)
+                  } else {
+                     $(this).css('top',0)
+                }
+    });
+});}
+});
+       return {
+          caclTop, currentPos, typeScroll, classPageOn, classScrollOn, caclTopTwo, caclTopThree, caclTopFour, caclTopFive, 
 
           wheel, callFromNav, swipeTop, swipeHandler, selectTypeScroll
       }
@@ -218,7 +239,7 @@ html{
     transition: 600ms top;
 }
 .page:nth-child(1){
-        top: v-bind(caclTop);
+    top: v-bind(caclTop);
 }
 .page:nth-child(2){
     top: v-bind(caclTopTwo);
@@ -237,7 +258,7 @@ html{
 position: relative;    
 overflow: hidden;
 top: 50vh;
-min-height: 50vh;
+min-height: 100vh;
 }
 .scroll:nth-child(1){
             top: v-bind(caclTop);
@@ -249,11 +270,10 @@ min-height: 50vh;
 }
 .scroll:nth-child(3){
     z-index: 20;    top: v-bind(caclTopThree);
-
+    background-color: #fff;
 }
 .scroll:nth-child(4){
     z-index: 30;    top: v-bind(caclTopFour);
-
 }
 .scroll:nth-child(5){
     z-index: 40;    top: v-bind(caclTopFive);
@@ -324,7 +344,7 @@ h1, h2 {
     margin: 0px;
 }
 .page-content {
-    height: 100%;
+    min-height: 100vh;
     position: relative;
 }
 .block {
@@ -644,4 +664,5 @@ input::-webkit-inner-spin-button {
         font-size: 12px;
     }
 }
+
 </style>

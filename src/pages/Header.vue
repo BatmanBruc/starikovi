@@ -56,7 +56,7 @@ span.header-one-day {
 .header-title{
 }
 .top-content{
-    height: 100%;
+    height: 100vh;
     background: url('../assets/beton_potertosti_tekstura_146032_1920x1080.jpg');
 }
 @media (min-width: 1080px) {

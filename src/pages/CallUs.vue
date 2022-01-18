@@ -56,7 +56,7 @@ a.contact-title {
 }
 .call-us {
     background-color: #ffc107;
-    height: 100%;
+    min-height: 100vh;
 }
 .call-us-wrapper{
     display: flex;

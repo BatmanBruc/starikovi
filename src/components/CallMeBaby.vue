@@ -1,5 +1,5 @@
 <template>
-    <div @click="$emit('call', -300, -3)" class="call-me-baby" @mouseout="callMeBabyON" @mouseleave='callMeBabyOFF'>
+    <div class="call-me-baby" @mouseout="callMeBabyON" @mouseleave='callMeBabyOFF'>
       <IconCall id="call-me-baby"/>
     </div>
 </template>
@@ -33,14 +33,7 @@ export default {
             this.qnCall = false
         }
     },
-        watch: {
-        level: function() {
-                        if (this.level <= -1 && this.level >= -3) {
-                this.callOn = true
-            } else {this.callOn = false}
-        }
-        }
-    
+
 
 }
 </script>

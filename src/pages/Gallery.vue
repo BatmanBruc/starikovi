@@ -69,8 +69,8 @@ export default {
 
 <style>
 .block-gallery {
-    background: #0c4235;
-    height: 100%;
+    background-color: #0c4235;
+    min-height: 100vh;
     padding: 0px 40px;
     padding-top: 0px!important;
 }
