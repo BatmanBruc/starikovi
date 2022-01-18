@@ -256,27 +256,21 @@ html{
 /* Стили для "скролла" */
 .scroll{
 position: relative;    
-overflow: hidden;
-top: 50vh;
+overflow-x: hidden;
 min-height: 100vh;
 }
 .scroll:nth-child(1){
-            top: v-bind(caclTop);
 
 }
 .scroll:nth-child(2){
-    z-index: 10;    top: v-bind(caclTopTwo);
 
 }
 .scroll:nth-child(3){
-    z-index: 20;    top: v-bind(caclTopThree);
-    background-color: #fff;
+ background-color: #fff;
 }
 .scroll:nth-child(4){
-    z-index: 30;    top: v-bind(caclTopFour);
 }
 .scroll:nth-child(5){
-    z-index: 40;    top: v-bind(caclTopFive);
 
 }
 .logo {
