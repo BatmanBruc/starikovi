@@ -18,10 +18,10 @@
                     </div>
                 </div>
                 <div class="menu-buttons">
-                    <div @click="callFromHeader(-4, 'page5')" class="call-button button">Галерея</div>
+                    <div @click="callFromHeader(-3, 'page4')" class="call-button button">Заказать звонок</div>
                     <div @click="callFromHeader(-1, 'page2')" class="call-button button">Цены</div>
                     <div @click="callFromHeader(-2, 'page3')" class="call-button button">Технология</div>
-                    <div @click="callFromHeader(-3, 'page4')" class="call-button button">Заказать звонок</div>
+                    <div @click="callFromHeader(-4, 'page5')" class="call-button button">Галерея</div>
                     <!--<img src="../assets/5200-VBS_1000x560_blue-800x448.png" alt="">-->
                 </div>
             </div>
@@ -57,7 +57,7 @@ export default {
 
 <style>
 span.header-one-day {
-    padding: 10px;
+    padding: 4px 20px;
     background: #d21616;
     border-radius: 4px;
 }
@@ -218,6 +218,7 @@ font-size: 30px;
     }
     .header-text{
         font-size: 18px;
+        display:none;
     }
     .button{
         margin: 0 auto;

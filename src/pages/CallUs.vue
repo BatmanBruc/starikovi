@@ -4,17 +4,17 @@
           <div class="block-call">
               <div class="title title-call">Заказать звонок
               </div>
-              <form class="call-form" id="call-form">
+              <div class="call-form" id="call-form">
                     <div class="field">
                         <div class="field-title">Имя</div>
-                        <input type="text" class="input-name">
+                        <input v-model="name" type="text" class="input-name">
                     </div>
                     <div class="field">
                         <div class="field-title">Номер</div>
-                        <input type="tel" class="input-tel" minlength="10">
+                        <input v-model="phone" type="tel" class="input-tel" minlength="10">
                     </div>
-                  <button class="btn-call">Отправить</button>    
-              </form>  
+                  <button @click="sendMail" class="btn-call">Отправить</button>    
+              </div>  
           </div>
             <div class="block-contacts">
                 <div class="contacts">
@@ -32,8 +32,38 @@
 </template>
 
 <script>
+import $ from 'jquery'
+import { ref } from 'vue'
+import { message } from 'ant-design-vue';
+
 export default {
-    name: 'CallUs'
+    name: 'CallUs',
+    setup(){
+        const name = ref('')
+        const phone = ref('')
+        const sendMail = ()=>{
+            $.ajax({
+                type: "POST",
+                url: "/mail.php",
+                data: {
+                    name: name.value,
+                    phone: phone.value
+                },
+                success: function(msg){
+                    message.success(
+                        'Заявка отправлена. Ожидайте звонка.',
+                        10,
+                    );
+                }
+            });
+            return false;
+        }
+        return {
+            name, phone,
+
+            sendMail
+        }        
+    }
 
 }
 </script>
@@ -136,7 +166,7 @@ a.contact-title {
     .contact-image{
         width: 2em;
     }
-    .title{
+    .call-us .title{
         font-size: 24px;
         padding-bottom: 39px!important;
     }

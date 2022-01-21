@@ -2,7 +2,7 @@
   <div  class="how-content">
       <div class="how-wrapper">
         <!-- Центральный заголовок  -->
-      <div class="title">Технология </div>
+      <div class="title">Технология полусухой стяжки</div>
       <!-- 3 блока -->
       <div class="how-blocks">
           <!-- Табс-контейнер -->
@@ -117,11 +117,7 @@ export default {
 
 .how-content{
     margin: 0 auto;
-    margin-top: 2.5vh;
     color: #484848;
-}
-.how-wrapper{
-    margin: 3vh auto;
 }
 .how-title{
     text-align: center;
@@ -266,9 +262,6 @@ export default {
     .list ul li{
     font-size: 1.3em;
     line-height: 16px;}
-    .how-wrapper{
-    margin: 5vh auto;
-}
 }
 @media (max-width: 426px){
     .subtitle,
@@ -317,9 +310,6 @@ export default {
     .tabs-block{
         padding: 0;
     }
-    .how-wrapper{
-        margin: 3vh auto;
-    }
     .block-list{margin-top: 0; font-size: 20px; line-height: 15px;
     }
 }
@@ -335,9 +325,6 @@ export default {
     .tabs-block{
         padding: 0;
     }
-    .how-wrapper{
-        margin: 3vh auto;
-    }
     .block-list{margin-top: 0; font-size: 16px; line-height: 15px;
     }
 }
@@ -352,9 +339,6 @@ export default {
     }
     .tabs-block{
         padding: 0;
-    }
-    .how-wrapper{
-        margin: 3vh auto;
     }
     .block-list{margin-top: 0; font-size: 16px; line-height: 16px;
     }
@@ -372,9 +356,6 @@ export default {
     .tabs-block{
         padding: 0;
     }
-    .how-wrapper{
-        margin: 2vh auto;
-    }
     .block-list{margin-top: 5px; font-size: 12px; line-height: 12px; padding: 0;
     }
 }
@@ -391,9 +372,6 @@ export default {
     .tabs-block{
         padding: 0;
     }
-    .how-wrapper{
-        margin: 3vh auto;
-    }
     .block-list{margin-top: 0; font-size: 20px; line-height: 16px;
     }
 }
@@ -409,9 +387,6 @@ export default {
     .tabs-block{
         padding: 0;
     }
-    .how-wrapper{
-        margin: 3vh auto;
-    }
     .block-list{margin-top: 0; font-size: 20px; line-height: 25px;
     }
 }
@@ -423,9 +398,6 @@ export default {
     .tabs-item{
     }
     .tabs-block{
-    }
-    .how-wrapper{
-        margin: 3vh auto;
     }
     .block-list{margin-top: 0; font-size: 24px; line-height: 28px;
     }
@@ -441,9 +413,6 @@ export default {
     .tabs-block{
         padding: 0;
     }
-    .how-wrapper{
-        margin: 3vh auto;
-    }
     .block-list{margin-top: 0; font-size: 14px; line-height: 20px;
     }
 }
@@ -457,9 +426,6 @@ export default {
     }
     .tabs-block{
         padding: 0;
-    }
-    .how-wrapper{
-        margin: 3vh auto;
     }
     .block-list{padding: 0;
     margin-top: 0; font-size: 12px; line-height: 13px;
@@ -476,9 +442,6 @@ export default {
     .tabs-block{
         padding: 0;
     }
-    .how-wrapper{
-        margin: 3vh auto;
-    }
     .block-list{padding: 15px;
     margin-top: 0; font-size: 17px; line-height: 18px;
     }
@@ -493,9 +456,6 @@ export default {
     }
     .tabs-block{
         padding: 0;
-    }
-    .how-wrapper{
-        margin: 3vh auto;
     }
     .block-list{padding: 15px;
     margin-top: 0; font-size: 13px; line-height: 18px;
@@ -512,9 +472,6 @@ export default {
     }
     .tabs-block{
         padding: 0;
-    }
-    .how-wrapper{
-        margin: 3vh auto;
     }
     .block-list{margin-top: 0; font-size: 20px; line-height: 15px;
     }

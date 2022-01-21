@@ -263,6 +263,7 @@ html{
 .scroll{
 position: relative;    
 overflow-x: hidden;
+
 height: 100vh;
 }
 .scroll:nth-child(1){
@@ -352,7 +353,6 @@ h1, h2 {
     position: relative;
 }
 .block {
-    padding-top: 12vh;
 }
 .block-orange{
     background: #ffc107;
@@ -399,7 +399,6 @@ element.style {
     .block {
         height: 100%;
         min-width: initial;
-        padding: 20px;
     }
     .block-content {
         margin: auto;
@@ -598,27 +597,28 @@ element.style {
         padding: 0;
         text-align:justify;
     }
+    .title{
+        padding: 12px!important;
+    }
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
-@media (max-width: 376px) and (max-height: 668px) {
+@media (max-width: 376px) {
         .mini-card{
         padding: 7px;
     }
 }
-@media (max-width: 415px) and (max-height: 897px) {
+@media (max-width: 415px) {
     .block.block-orange{
-        padding-top: 10px;
     }
     .block-orange .title{
         padding: 15px;
     }
 }
-@media (max-width: 391px) and (max-height: 845px) {
+@media (max-width: 391px) {
         .block.block-orange{
-        padding-top: 5px;
     }
     .block-orange .title{
         padding: 8px;
@@ -627,37 +627,36 @@ input::-webkit-inner-spin-button {
         margin-bottom: 0;
     }
 }
-@media (max-width: 394px) and (max-height: 852px) {
+@media (max-width: 394px) {
     .title{
         margin-bottom: 0;
     }
 }
-@media (max-width: 394px) and (max-height: 852px) {
+@media (max-width: 394px){
     .mini-card-title{
         font-size: 16px;
     }
 }
-@media (max-width: 413px) and (max-height: 916px) {
+@media (max-width: 413px){
     .title{
         margin-bottom: 0;
     }
      .block.block-orange{
-        padding-top: 10px;
     }
 }
-@media (max-width: 541px) and (max-height: 721px) {
+@media (max-width: 541px) {
         .title{
         margin-bottom: 0;
         padding: 8px;
+        font-size: 24px;
     }
      .block.block-orange{
-        padding-top: 7px;
     }
         .mini-card-title{
         font-size: 14px;
     }
 }
-@media (max-width: 281px) and (max-height: 654px) {
+@media (max-width: 281px){
     .title{
         font-size: 20px;
     }

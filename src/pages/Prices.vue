@@ -1,7 +1,12 @@
 <template>
     <div  class="block block-orange">
-            <div class="title">Цены и условия <div class="block-title-border"></div></div>
+            <div class="title">Цены и условия полуcухой стяжки <div class="block-title-border"></div></div>
             <div class="block-content">
+                <div class="cal">
+                    <div class="cal-input"><input id="cal-input" @keydown="pressInput" v-model="inputNum" type="number"/><div class="cal-input-placeholder">квадратный метр</div></div>
+                    <div class="cal-fix-price">x<span class="cal-var cal-number">800₽</span>=</div>
+                    <div class="cal-sum cal-number" id="cal-sum"> {{resultSum}}₽</div>
+                </div>
                 <div class="cards">
                     <div class="mini-card">
                         <div class="mini-card-icon">
@@ -27,11 +32,6 @@
                         </div>
                         <div class="mini-card-title">Подача раствора на высоту до 100 метров</div>
                     </div>
-                </div>
-                <div class="cal">
-                    <div class="cal-input"><input id="cal-input" @keydown="pressInput" v-model="inputNum" type="number"/><div class="cal-input-placeholder">квадратный метр</div></div>
-                    <div class="cal-fix-price">x<span class="cal-var cal-number">800₽</span>=</div>
-                    <div class="cal-sum cal-number" id="cal-sum"> {{resultSum}}₽</div>
                 </div>
             </div>
         </div>
